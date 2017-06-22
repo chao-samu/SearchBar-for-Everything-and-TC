@@ -4,14 +4,13 @@ to make fast searches on specified drives and folder or files directly from the 
 
 ![Alt text](@Resources/examples/Skin_example.png)
 
-Everything: https://www.voidtools.com   
-Total Commander: https://www.ghisler.com  
-
 The Skin is inspired from "Search+" skin by Bgd69 (http://bgd69.deviantart.com/art/Search-425781470).
 
 Special thanks goes to Christian Gishler for the permission to use his "Total Commander" Icon and
 David Carpenter to use his "Everything" Icon for this Skin.
 
+Everything: https://www.voidtools.com   
+Total Commander: https://www.ghisler.com  
 
 # Usage
 1. It's a Rainmeter skin you need Rainmeter
