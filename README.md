@@ -1,5 +1,5 @@
 # RainmeterSkin: SearchBar Everything + TC
-This is a small litte Rainmeter searchbar skin for the programm "Everything" and "Total Commander"
+This is a small little Rainmeter searchbar skin for the programm "Everything" and "Total Commander"
 to make fast searches on specified drives and folder or files directly from the desktop.
 
 ![Alt text](@Resources/examples/Skin_example.png)
