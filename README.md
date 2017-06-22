@@ -9,7 +9,7 @@ It's inspired by "Search+" Skin by Bgd69 (http://bgd69.deviantart.com/art/Search
 Special thanks goes to Christian Gishler for the permission to use his "Total Commander" Icon and
 David Carpenter to use his "Everything" Icon for this Skin.
 
-Total Commander: https://www.ghisler.com
+Total Commander: https://www.ghisler.com  
 Everything: https://www.voidtools.com
 
 # Usage
