@@ -2,6 +2,8 @@
 This is a small litte Rainmeter searchbar skin for the programm "Everything" and "Total Commander"
 to make fast searches on specified drives and folder or files directly from the desktop.
 
+![Alt text](@Resources/examples/Skin_example.png?raw=true "Optional Title")
+
 It's inspired by "Search+" Skin by Bgd69 (http://bgd69.deviantart.com/art/Search-425781470).
 
 Special thanks goes to Christian Gishler for the permission to use his "Total Commander" Icon and
@@ -17,6 +19,3 @@ Everything: https://www.voidtools.com/
 4. Important! Edit the "SearchBar.cfg" to your needs. Add the drives you wan't and
 the correct programm paths. Keep it LUA Language conform (normally you just need to know that you
 have to use double backslashes instead of single backslashes)
-
-
-
