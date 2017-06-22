@@ -4,7 +4,7 @@ to make fast searches on specified drives and folder or files directly from the 
 
 ![Alt text](@Resources/examples/Skin_example.png)
 
-Everything: https://www.voidtools.com 
+Everything: https://www.voidtools.com   
 Total Commander: https://www.ghisler.com  
 
 Special thanks goes to Christian Gishler for the permission to use his "Total Commander" Icon and
