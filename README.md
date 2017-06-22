@@ -2,7 +2,7 @@
 This is a small little Rainmeter searchbar skin for the programm "Everything" and "Total Commander"
 to make fast searches on specified drives and folder or files directly from the desktop.
 
-![Alt text](@Resources/examples/Skin_example.png)
+![Alt text](@Resources/examples/skin_example.png)
 
 The Skin is inspired from "Search+" skin by Bgd69 (http://bgd69.deviantart.com/art/Search-425781470).
 
