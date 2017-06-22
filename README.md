@@ -14,7 +14,7 @@ David Carpenter to use his "Everything" Icon for this Skin.
 
 
 # Usage
-1. For sure it's a Rainmeter skin you need Rainmeter
+1. It's a Rainmeter skin you need Rainmeter
 2. You need "Everything" installed and/or "Total Commander"
 3. Install the *.rmskin file
 4. Important! Edit the "SearchBar.cfg" to your needs. Add the drives you wan't and
