@@ -125,6 +125,7 @@ TCChoseSearchOptions(option_1)
             PostMessage, 0x1330, 0, 0, SysTabControl321, ahk_class TFindFile
         }
         ;ControlClick, Button55, ahk_class TFindFile ;seems not to work safely
+        ControlFocus, Button55, ahk_class TFindFile  ; necessary for second search
         ControlSend, Button55, {Enter}, ahk_class TFindFile
     }
 }
@@ -136,6 +137,7 @@ IfWinExist, ahk_class TFindFile
     WinWaitActive, ahk_class TFindFile
     ControlSetText, Edit2, %laufwerksname%, ahk_class TFindFile
     ControlSetText, Edit3, %SearchParam%, ahk_class TFindFile
+    Sleep, 100 ;necessary for TC string save time in Edit3 
     TCChoseSearchOptions(option_1)
 }
 else
