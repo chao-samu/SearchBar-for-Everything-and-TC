@@ -1,12 +1,12 @@
 function Initialize()
 
     -- VARIABLES ===================================================================================
-    
+
     -- insert cfg file variables
     dofile(SKIN:MakePathAbsolute('SearchBar.cfg'))
 
     -- PREPARE VARIABLES ===========================================================================
-    
+
     -- get array size
     maxIndexDrive = iterate(drive)
     maxIndexSScope = iterate(sScope)
@@ -35,22 +35,22 @@ function Initialize()
     end
 
    -- INIT SKIN SETTINGS ===========================================================================
-   
+
     if count % 2 == 0 then
         SKIN:Bang('!SetOption ProgrammICON ImageName "' .. ImageNameEverything .. '"')
         SKIN:Bang('!SetOption SearchBarText Text "Everything"')
     else
         SKIN:Bang('!SetOption ProgrammICON ImageName "' .. ImageNameTC .. '"')
         SKIN:Bang('!SetOption SearchBarText Text "Total Commander"')
-    end     
-   
+    end
+
     if count2 <= maxIndexDrive then
         SKIN:Bang('!SetOption DriveICON Text "' .. drive[count2] .. '"')
     else
         count2 = 1
         SKIN:Bang('!SetOption DriveICON Text "' .. drive[count2] .. '"')
     end
-    
+
     if count3 <= maxIndexSScope then
         SKIN:Bang('!SetOption SearchScopeICON Text "' .. sScope[count3] .. '"')
     else
@@ -59,7 +59,7 @@ function Initialize()
     end
 
     SKIN:Bang('[!UpdateMeter SearchBarText][!UpdateMeter ProgrammICON][!UpdateMeter DriveICON][!UpdateMeter SearchScopeICON][!Redraw]')
-    
+
 end
 
 function Update()
@@ -75,12 +75,12 @@ function UserInput()
             if count2 == 1 and count3 == 1 then
             SKIN:Bang('["' .. PathEverything .. '" -s "' .. UserInput .. '"]')
             elseif count2 == 1 then
-            SKIN:Bang('["' .. PathEverything .. '" -s "' .. sScopeEverything[count3] .. ' ' .. UserInput .. '"]')  
+            SKIN:Bang('["' .. PathEverything .. '" -s "' .. sScopeEverything[count3] .. ' ' .. UserInput .. '"]')
             else --count3 == 1
-            SKIN:Bang('["' .. PathEverything .. '" -s "' .. driveEverything[count2] .. ' ' .. UserInput .. '"]')  
+            SKIN:Bang('["' .. PathEverything .. '" -s "' .. driveEverything[count2] .. ' ' .. UserInput .. '"]')
             end
         else
-        SKIN:Bang('["' .. PathEverything .. '" -s "' .. sScopeEverything[count3] .. ' '.. driveEverything[count2] .. ' ' .. UserInput .. '"]')       
+        SKIN:Bang('["' .. PathEverything .. '" -s "' .. sScopeEverything[count3] .. ' '.. driveEverything[count2] .. ' ' .. UserInput .. '"]')
         end
         SKIN:Bang('!SetOption SearchBarText Text "Everything"')
     else
@@ -93,27 +93,28 @@ function UserInput()
 end
 
 function ProgrammICON()
-    
+
     count = count + 1
-    
+
     if count % 2 == 0 then
         SKIN:Bang('!SetOption ProgrammICON ImageName "' .. ImageNameEverything .. '"')
         SKIN:Bang('!SetOption SearchBarText Text "Everything"')
     else
+        count = 1
         SKIN:Bang('!SetOption ProgrammICON ImageName "' .. ImageNameTC .. '"')
         SKIN:Bang('!SetOption SearchBarText Text "Total Commander"')
-    end    
+    end
 
     SKIN:Bang('[!UpdateMeter SearchBarText][!UpdateMeter ProgrammICON][!Redraw]')
-    
+
     saveLUAConfigVALUE()
 
 end
 
 function DriveICON()
-       
+
     count2 = count2 + 1
-    
+
     if count2 <= maxIndexDrive then
         SKIN:Bang('!SetOption DriveICON Text "' .. drive[count2] .. '"')
     else
@@ -122,13 +123,13 @@ function DriveICON()
     end
 
     SKIN:Bang('[!UpdateMeter DriveICON][!Redraw]')
-    
-    saveLUAConfigVALUE()      
-    
+
+    saveLUAConfigVALUE()
+
 end
 
 function SearchScopeICON()
-   
+
     count3 = count3 + 1
 
     if count3 <= maxIndexSScope then
@@ -139,7 +140,7 @@ function SearchScopeICON()
     end
 
     SKIN:Bang('[!UpdateMeter SearchScopeICON][!Redraw]')
-    
+
     saveLUAConfigVALUE()
 
 end
@@ -152,7 +153,7 @@ function SearchBarTextRestore()
         SKIN:Bang('!SetOption SearchBarText Text "Total Commander"')
     end
 
-    SKIN:Bang('[!UpdateMeter SearchBarText][!Redraw]')  
+    SKIN:Bang('[!UpdateMeter SearchBarText][!Redraw]')
 
 end
 
@@ -169,19 +170,19 @@ function iterate(drive)
 end
 
 function saveLUAConfigVALUE()
-    
+
     if savesettings == false then
         return
     end
-    
+
     local fp = io.open( SKIN:MakePathAbsolute('SearchBar.cfg'), "r+" )
     local content = fp:read("*all")
     fp:seek('set')
-    
+
     content = string.gsub(content, "count%s*=%s*%d*", "count = " .. count)
     content = string.gsub(content, "count2%s*=%s*%d*", "count2 = " .. count2)
     content = string.gsub(content, "count3%s*=%s*%d*", "count3 = " .. count3)
-    
+
 
     fp:write(content)
     fp:close()
