@@ -94,9 +94,9 @@ TCChoseSearchOptions(option_1)
             PostMessage, 0x00F1, 2,, TMyCheckBox9, ahk_class TFindFile
             Control,TabLeft, 1, TMyTabbedNotebook1, ahk_class TFindFile
         }
-        ;ControlClick, TButton16, ahk_class TFindFile ;seems not to work safely
-        ControlFocus, TButton16, ahk_class TFindFile  ; necessary for second search
-        ControlSend, TButton16, {Enter}, ahk_class TFindFile
+        ;ControlClick, TButton19, ahk_class TFindFile ;seems not to work safely
+        ControlFocus, TButton19, ahk_class TFindFile  ; necessary for second search
+        ControlSend, TButton19, {Enter}, ahk_class TFindFile
     }
     IfWinActive, ahk_class TFindFile ahk_exe TOTALCMD64.EXE
     {
