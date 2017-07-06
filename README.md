@@ -9,9 +9,6 @@ The Skin is inspired from "[Search+](http://bgd69.deviantart.com/art/Search-4257
 Special thanks goes to Christian Gishler for the permission to use his "Total Commander" Icon and
 David Carpenter to use his "Everything" Icon for this Skin.
 
-Everything: https://www.voidtools.com
-Total Commander: https://www.ghisler.com
-
 # What makes this search bar different from others?
 1. Search bars normally don't fit in your current skin setting and it makes it quite difficult to
  adjust the skin image with your image editing software. This search bar skin is different because
@@ -24,7 +21,7 @@ Total Commander: https://www.ghisler.com
 
 # How to use?
 1. It's a Rainmeter skin you need Rainmeter
-2. You need "[Everything](http://bgd69.deviantart.com/art/Search-425781470)" installed and/or "[Total Commander](https://www.ghisler.com)Total Commander"
+2. You need "[Everything](http://bgd69.deviantart.com/art/Search-425781470)" installed and/or "[Total Commander](https://www.ghisler.com)"
 3. Install the *.rmskin file
 4. Important! Edit the "SearchBar.cfg" to your needs. Add the drives you want and the correct
  program paths. Keep it LUA language conform (normally you just need to know that you have to
