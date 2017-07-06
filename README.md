@@ -12,7 +12,7 @@ David Carpenter to use his "Everything" Icon for this Skin.
 Everything: https://www.voidtools.com   
 Total Commander: https://www.ghisler.com  
 
-# What makes this search bar special?
+# What makes this search bar different from others?
 1. Search bars normally don't fit in you current skin settings and it makes it quite difficult to
  adjust the skin image with your image editing software. This search bar skin is different because
  it don't uses even one image and you can change the appereance very easily with just 2 variables
