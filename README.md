@@ -22,7 +22,7 @@ Total Commander: https://www.ghisler.com
  if you wish and not to save it's current state if you don't wish. Besides you can also set a
  standard setting that will always be set if the skin is redrawn.
 
-# Usage
+# How to use?
 1. It's a Rainmeter skin you need Rainmeter
 2. You need "Everything" installed and/or "Total Commander"
 3. Install the *.rmskin file
