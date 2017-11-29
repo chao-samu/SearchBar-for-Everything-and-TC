@@ -1,1 +1,0 @@
-Because Rainmeter has some problems to handle icon files, a conversion to png is necessary until now.
