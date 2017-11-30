@@ -5,15 +5,15 @@ files directly from the desktop.
 
 ![](@Resources/examples/skin_example.png)
 
-The Skin is inspired from "[Search+](http://bgd69.deviantart.com/art/Search-425781470)" skin by Bgd69.
+This skin is inspired from "[Search+](http://bgd69.deviantart.com/art/Search-425781470)" skin by Bgd69.
 
 Special thanks goes to Christian Gishler for the permission to use his
 "Total Commander" Icon and David Carpenter to use his "Everything" icon for this
-Skin.
+skin.
 
 # What makes this search bar different from others?
 1. Easily adjustable for high dpi screens.
-2. Easily adoptable for your current Skin setting (color, font...).
+2. Easily adoptable for your current skin setting (color, font...).
 2. Saves current skin settings if closed.
 
 # How to use?
@@ -25,4 +25,4 @@ Skin.
    and the correct program paths. Keep it LUA language conform (normally you
    just need to know that you have to use double backslashes instead of single
    backslashes)
-5. If you wish, change appearance (color, size...) in the Skin ini file.
+5. If you wish, change appearance (color, size...) in the skin ini file.
