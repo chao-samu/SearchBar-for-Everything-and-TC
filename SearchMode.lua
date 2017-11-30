@@ -38,7 +38,7 @@ function Initialize()
         end
     end
 
-    -- SET SKIN SIZE WITH "SIZE" VARIABLE ======================================
+    -- SIZE HANDLING DEPENDEND ON "Size" VARIABLE ==============================
 
     -- get size
     SearchBar_Size = SKIN:GetVariable('Size')
@@ -61,7 +61,7 @@ function Initialize()
     Plugin_InputText_W = Plugin_InputText:GetNumberOption('W')
     Plugin_InputText_H = Plugin_InputText:GetNumberOption('H')
     Plugin_InputText_FontSize = Plugin_InputText:GetNumberOption('FontSize')
-    -- Note MEASURE "Input Plugin" cannot handle even pixel inch (tested in rainmeter v4.0)
+    -- Note MEASURE "Input Plugin" cannot handle even pixel inch (tested in Rainmeter v4.0)
     Plugin_InputText_X = math.floor((Plugin_InputText_X * SearchBar_Size)+0.5)
     Plugin_InputText_Y = math.floor((Plugin_InputText_Y * SearchBar_Size)+0.5)
     Plugin_InputText_W = math.floor((Plugin_InputText_W * SearchBar_Size)+0.5)
@@ -75,101 +75,46 @@ function Initialize()
     SKIN:Bang('!SetOption "Plugin_InputText" "FontSize" " ' .. Plugin_InputText_FontSize .. '"')
 
     -- set Background_SearchMode
-    l_object_Position = GetMeterPosition('Background_SearchMode')
-    l_object_Size = GetMeterShapeSize('Background_SearchMode')
-    SetSizetoObject(l_object_Position)
-    SetSizetoObject(l_object_Size)
-    SetMeterPosition('Background_SearchMode', l_object_Position)
-    SetMeterShapeSize('Background_SearchMode', l_object_Size)
+    SetBackground('Background_SearchMode')
+
     -- set Background_Drive
-    l_object_Position = GetMeterPosition('Background_Drive')
-    l_object_Size = GetMeterShapeSize('Background_Drive')
-    SetSizetoObject(l_object_Position)
-    SetSizetoObject(l_object_Size)
-    SetMeterPosition('Background_Drive', l_object_Position)
-    SetMeterShapeSize('Background_Drive', l_object_Size)
+    SetBackground('Background_Drive')
+
     -- set Background_SearchScope
-    l_object_Position = GetMeterPosition('Background_SearchScope')
-    l_object_Size = GetMeterShapeSize('Background_SearchScope')
-    SetSizetoObject(l_object_Position)
-    SetSizetoObject(l_object_Size)
-    SetMeterPosition('Background_SearchScope', l_object_Position)
-    SetMeterShapeSize('Background_SearchScope', l_object_Size)
+    SetBackground('Background_SearchScope')
+
     -- set Background_SearchBar
-    l_object_Position = GetMeterPosition('Background_SearchBar')
-    l_object_Size = GetMeterShapeSize('Background_SearchBar')
-    SetSizetoObject(l_object_Position)
-    SetSizetoObject(l_object_Size)
-    SetMeterPosition('Background_SearchBar', l_object_Position)
-    SetMeterShapeSize('Background_SearchBar', l_object_Size)
+    SetBackground('Background_SearchBar')
 
     -- set Icon_SearchMode
-    local Icon_SearchMode = SKIN:GetMeter('Icon_SearchMode')
-    Icon_SearchMode_X = Icon_SearchMode:GetX()
-    Icon_SearchMode_Y = Icon_SearchMode:GetY()
-    Icon_SearchMode_W = Icon_SearchMode:GetW()
-    Icon_SearchMode_H = Icon_SearchMode:GetH()
+    Icon_SearchMode_W = SetIcon('Icon_SearchMode')
 
-    Icon_SearchMode_X = Icon_SearchMode_X * SearchBar_Size
-    Icon_SearchMode_Y = Icon_SearchMode_Y * SearchBar_Size
-    Icon_SearchMode_W = Icon_SearchMode_W * SearchBar_Size
-    Icon_SearchMode_H = Icon_SearchMode_H * SearchBar_Size
-
-    SKIN:Bang('!SetOption "Icon_SearchMode" "X" " ' .. Icon_SearchMode_X .. '"')
-    SKIN:Bang('!SetOption "Icon_SearchMode" "Y" " ' .. Icon_SearchMode_Y .. '"')
-    SKIN:Bang('!SetOption "Icon_SearchMode" "W" " ' .. Icon_SearchMode_W .. '"')
-    SKIN:Bang('!SetOption "Icon_SearchMode" "H" " ' .. Icon_SearchMode_H .. '"')
-
-    -- set icon Size
+    -- set icon size
     if Icon_SearchMode_W <= 16 then
-        ImageNameEverything = SKIN:ReplaceVariables('#@#images\\Everything\\16x16_Everything-1.4.1.877.x64-Setup.png')
-        ImageNameTC = SKIN:ReplaceVariables('#@#images\\TC\\16x16_AppIcon6.png')
+        ImageNameEverything = SKIN:ReplaceVariables(ImageFolderEverything .. '\\16x16_Everything-1.4.1.877.x64-Setup.png')
+        ImageNameTC = SKIN:ReplaceVariables(ImageFolderTC .. '\\16x16_AppIcon6.png')
     elseif Icon_SearchMode_W <= 24 then
-        ImageNameEverything = SKIN:ReplaceVariables('#@#images\\Everything\\24x24_Everything-1.4.1.877.x64-Setup.png')
-        ImageNameTC = SKIN:ReplaceVariables('#@#images\\TC\\24x24_AppIcon6.png')
+        ImageNameEverything = SKIN:ReplaceVariables(ImageFolderEverything .. '\\24x24_Everything-1.4.1.877.x64-Setup.png')
+        ImageNameTC = SKIN:ReplaceVariables(ImageFolderTC .. '\\24x24_AppIcon6.png')
     elseif Icon_SearchMode_W <= 32 then
-        ImageNameEverything = SKIN:ReplaceVariables('#@#images\\Everything\\32x32_Everything-1.4.1.877.x64-Setup.png')
-        ImageNameTC = SKIN:ReplaceVariables('#@#images\\TC\\32x32_AppIcon6.png')
+        ImageNameEverything = SKIN:ReplaceVariables(ImageFolderEverything .. '\\32x32_Everything-1.4.1.877.x64-Setup.png')
+        ImageNameTC = SKIN:ReplaceVariables(ImageFolderTC .. '\\32x32_AppIcon6.png')
     elseif Icon_SearchMode_W <= 48 then
-        ImageNameEverything = SKIN:ReplaceVariables('#@#images\\Everything\\48x48_Everything-1.4.1.877.x64-Setup.png')
-        ImageNameTC = SKIN:ReplaceVariables('#@#images\\TC\\48x48_AppIcon6.png')
+        ImageNameEverything = SKIN:ReplaceVariables(ImageFolderEverything .. '\\48x48_Everything-1.4.1.877.x64-Setup.png')
+        ImageNameTC = SKIN:ReplaceVariables(ImageFolderTC .. '\\48x48_AppIcon6.png')
     else  --Icon_SearchMode_W > 48
-        ImageNameEverything = SKIN:ReplaceVariables('#@#images\\Everything\\256x256_Everything-1.4.1.877.x64-Setup.png')
-        ImageNameTC = SKIN:ReplaceVariables('#@#images\\TC\\48x48_AppIcon6.png')
+        ImageNameEverything = SKIN:ReplaceVariables(ImageFolderEverything .. '\\256x256_Everything-1.4.1.877.x64-Setup.png')
+        ImageNameTC = SKIN:ReplaceVariables(ImageFolderTC .. '\\48x48_AppIcon6.png')
     end
 
     -- set Text_Drive
-    l_object_Position = GetMeterPosition('Text_Drive')
-    l_object_Size = GetMeterSize('Text_Drive')
-    l_FontSize = GetFontSize('Text_Drive')
-    SetSizetoObject(l_object_Position)
-    SetSizetoObject(l_object_Size)
-    SetSizetoObject(l_FontSize)
-    SetMeterPosition('Text_Drive', l_object_Position)
-    SetMeterSize('Text_Drive', l_object_Size)
-    SetFontSize('Text_Drive', l_FontSize)
+    SetText('Text_Drive')
 
     -- set Text_SearchScope
-    l_object_Position = GetMeterPosition('Text_SearchScope')
-    l_object_Size = GetMeterSize('Text_SearchScope')
-    l_FontSize = GetFontSize('Text_SearchScope')
-    SetSizetoObject(l_object_Position)
-    SetSizetoObject(l_object_Size)
-    SetSizetoObject(l_FontSize)
-    SetMeterPosition('Text_SearchScope', l_object_Position)
-    SetMeterSize('Text_SearchScope', l_object_Size)
-    SetFontSize('Text_SearchScope', l_FontSize)
+    SetText('Text_SearchScope')
 
     -- set Text_SearchBar
-    l_object_Position = GetMeterPosition('Text_SearchBar')
-    l_object_Size = GetMeterSize('Text_SearchBar')
-    l_FontSize = GetFontSize('Text_SearchBar')
-    SetSizetoObject(l_object_Position)
-    SetSizetoObject(l_object_Size)
-    SetSizetoObject(l_FontSize)
-    SetMeterPosition('Text_SearchBar', l_object_Position)
-    SetMeterSize('Text_SearchBar', l_object_Size)
-    SetFontSize('Text_SearchBar', l_FontSize)
+    SetText('Text_SearchBar')
 
    -- INIT SKIN SETTINGS =======================================================
 
@@ -196,7 +141,7 @@ function Initialize()
         SKIN:Bang('!SetOption Text_SearchScope Text "' .. sScope[count3] .. '"')
     end
 
-    -- Update Skin =============================================================
+    -- UPDATE SKIN =============================================================
     SKIN:Bang('[!Update][!Redraw]')
 
 end
@@ -339,7 +284,7 @@ end
 
 -- FUNCTIONS: Size handling ====================================================
 
--- get Functions
+-- get functions
 function GetMeterPosition(MeterName)
 
     local MeterObject = SKIN:GetMeter(MeterName)
@@ -383,7 +328,7 @@ function GetFontSize(MeterName)
 
 end
 
--- set Functions (global)
+-- set functions (global)
 function SetSizetoObject(t_Object)
     -- needs global value "SearchBar_Size"
     for k, v in pairs(t_Object) do
@@ -392,7 +337,7 @@ function SetSizetoObject(t_Object)
 
 end
 
--- set Functions (local)
+-- set functions (local)
 function SetMeterPosition(MeterName, t_MeterSize)
 
     SKIN:Bang('!SetOption "' .. MeterName .. '" "X" " ' .. t_MeterSize['X'] .. '"')
@@ -424,3 +369,43 @@ function SetFontSize(MeterName, t_FontSize)
     SKIN:Bang('!SetOption "' .. MeterName .. '" "InlineSetting2" " ' .. MeterObject_FontSize .. '"')
 
 end
+
+-- concentrated functions
+function SetBackground(MeterName)
+
+    l_object_Position = GetMeterPosition(MeterName)
+    l_object_Size = GetMeterShapeSize(MeterName)
+    SetSizetoObject(l_object_Position)
+    SetSizetoObject(l_object_Size)
+    SetMeterPosition(MeterName, l_object_Position)
+    SetMeterShapeSize(MeterName, l_object_Size)
+
+end
+
+function SetIcon(MeterName)
+
+    l_object_Position = GetMeterPosition(MeterName)
+    l_object_Size = GetMeterSize(MeterName)
+    SetSizetoObject(l_object_Position)
+    SetSizetoObject(l_object_Size)
+    SetMeterPosition(MeterName, l_object_Position)
+    SetMeterSize(MeterName, l_object_Size)
+
+    return l_object_Size['W']
+
+end
+
+function SetText(MeterName)
+
+    l_object_Position = GetMeterPosition(MeterName)
+    l_object_Size = GetMeterSize(MeterName)
+    l_FontSize = GetFontSize(MeterName)
+    SetSizetoObject(l_object_Position)
+    SetSizetoObject(l_object_Size)
+    SetSizetoObject(l_FontSize)
+    SetMeterPosition(MeterName, l_object_Position)
+    SetMeterSize(MeterName, l_object_Size)
+    SetFontSize(MeterName, l_FontSize)
+
+end
+
