@@ -12,17 +12,9 @@ Special thanks goes to Christian Gishler for the permission to use his
 Skin.
 
 # What makes this search bar different from others?
-1. Search bars normally don't fit in your current skin setting and it makes it
- quite difficult to adjust the skin image with your image editing software. This
- search bar skin is different because it don't uses even one image and you can
- change the appearance very easily with just 2 variables to fit it to your
- settings.
-2. If you make a selection in other search bars the selection will be dropped if
- you redraw your skin and it will automatically select the initial standard
- setting. I made this skin able to save it's current setting if you wish and not
- to save it's current setting if you don't wish. Besides you can also set a
- standard setting that will always be set if the skin is redrawn.
-3. Easily adjustable for high dpi screens.
+1. Easily adjustable for high dpi screens.
+2. Easily adoptable for your current Skin setting.(color, font...)
+2. Saves current skin settings if closed.
 
 # How to use?
 1. It's a Rainmeter skin you need "[Rainmeter](https://www.rainmeter.net/)"
@@ -33,4 +25,4 @@ Skin.
    and the correct program paths. Keep it LUA language conform (normally you
    just need to know that you have to use double backslashes instead of single
    backslashes)
-5. If you wish, change appearance (Color, Size...) in the Skin ini file.
+5. If you wish, change appearance (color, size...) in the Skin ini file.
