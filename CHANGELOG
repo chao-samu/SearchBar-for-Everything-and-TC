@@ -1,5 +1,5 @@
 ﻿1.05(30.11.2017)
-- ADD: responsive size variable
+- ADD: added size variable
 - CHANGE: design border-->shadow
   (because of easier implementation of size variable)
 
@@ -10,7 +10,6 @@
 1.03 (06.07.2017)
 - ADD: global variables for FontColor and BackgroundColor
 - ADD: equal length between different skins
-
 - BUG: fixed blurry TC Icon
 
 1.02 (02.07.2017)
