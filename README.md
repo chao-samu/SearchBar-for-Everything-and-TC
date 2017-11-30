@@ -25,7 +25,7 @@ Skin.
 3. Easily adjustable for high dpi screens.
 
 # How to use?
-1. It's a Rainmeter skin you need Rainmeter
+1. It's a Rainmeter skin you need "[Rainmeter](https://www.rainmeter.net/)"
 2. You need "[Everything](https://www.voidtools.com/)"
    installed and/or "[Total Commander](https://www.ghisler.com)"
 3. Install the *.rmskin file
