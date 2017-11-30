@@ -12,8 +12,8 @@ Special thanks goes to Christian Gishler for the permission to use his
 skin.
 
 # What makes this search bar different from others?
-1. Easily adjustable for high dpi screens.
-2. Easily adoptable for your current skin setting (color, font...).
+1. Easily scalable for high dpi screens.
+2. Easily adaptable for your current skin setting (color, font...).
 2. Saves current skin settings if closed.
 
 # How to use?
