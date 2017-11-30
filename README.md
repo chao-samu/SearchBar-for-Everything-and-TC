@@ -13,7 +13,7 @@ skin.
 
 # What makes this search bar different from others?
 1. Easily scalable for high dpi screens.
-2. Easily adaptable for your current skin setting (color, font...).
+2. Easily customizable for your current skin setting (color, font...).
 2. Saves current skin settings if closed.
 
 # How to use?
