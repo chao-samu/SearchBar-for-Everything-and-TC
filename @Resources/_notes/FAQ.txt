@@ -1,0 +1,82 @@
+﻿#So many Files which one do i really need?
+You need only two.
+
+"SearchBar.cfg.lua"     --> edit for technical things
+"Searchbar<flavor>.ini" --> edit for appearance of the skin
+
+You can reach the ini file for appearance easily with right clicking on the
+active skin and choose "edit Skin".
+
+You can reach the .cfg file for technical things easily with right clicking
+on the active skin, and choose the bold name. Then you should see the file and
+you should open it with an editor.
+
+
+
+# How can I change the color of the Skin?
+Open ini file and search for "BackgroundColor=255,255,255,255"
+This are RGBA values, google it if you don't know what it is.
+
+For green for example set "BackgroundColor=0,255,0,255".
+Save the file and Renew the Skin! Renew is important
+(Right-click on the skin--> "skin renew")!
+
+
+
+# How can I add my drives?
+Open cfg file and search for "drives="
+Just delete or add the one you need.
+
+Save the file and Renew the Skin! Renew is important
+(Right-click on the Skin--> "skin renew")!
+
+
+
+# totalcommander or doublecommander plugin is not working, a weird dialogue opens?
+You need Autohotkey installed to get it to work. (https://www.autohotkey.com/)
+Also you need the required program "Total Commander" or "Double Commander" 
+installed!
+Also the Path must be correct look in section "Everything" is not working, if
+you need help for the Path adjustment.
+
+
+
+# Everything is not working?
+Be sure everything is installed (https://www.voidtools.com/).
+Also the path to the program have to be correct. If it's not the default path,
+edit "SearchBar.cfg.lua", go to plugin override section --> remove "--" to
+uncomment and edit the line "cmd" to the path where everything is!
+
+everything = {
+name = 'everything',
+size = 1,
+icon = SKIN:GetVariable('@')..'plugins\\Everything\\icon\\png\\',
+field1 = drives,
+field2 = { 'ALL' , 'FOLDER', 'FILE' },
+text = 'Search Everything',
+field1_cmd = {},
+field2_cmd = { '', 'folder:', 'file:' },
+cmd = SKIN:ReplaceVariables('C:\\Program Files (x86)\\Everything\\Everything.exe'),
+additional = {drive = {}}
+}
+
+Don't forget the renew the Skin! Try it.
+
+
+# Can I change the the websearch plugin to search with DuckDuckGo?
+Yes, use the plugin override in the cfg file "SearchBar.cfg.lua".
+
+Comment it out (remove "--" for the whole table and set "cmd" and "text"). So it
+should look like this:
+
+websearch = {
+name = 'websearch',
+icon = SKIN:GetVariable('@')..'plugins\\websearch\\icon\\png\\',
+field1 = {''},
+field2 = {''},
+text = 'Search with DuckDuckGo',
+field1_cmd = {''},
+field2_cmd = {''},
+cmd = 'https://duckduckgo.com/?q=',
+additional = {''}
+}

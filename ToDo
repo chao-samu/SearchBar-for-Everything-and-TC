@@ -1,0 +1,6 @@
+- improve: remove the requirement of copying the "current" table in plugins
+- improve: every int of the size variable should make skin in a line
+- code improvement: error handling, store cfg don't call function when false, lower globals, use nil for tables
+
+On Release:
+- set savesettings to false
