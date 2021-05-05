@@ -14,17 +14,17 @@
 ; development notes....: better option for find window recognition, better imp. of openFindDialouge()
 ; ==============================================================================
 
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
 #NoTrayIcon
 ; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 
 ; MAIN #########################################################################
 checkCmdArgs()
 DCcmd := getCmdArgs()
 
-if WinExist("ahk_class Window ahk_exe doublecmd.exe")  {
+if WinExist("ahk_class Window ahk_exe doublecmd.exe") {
     startSearch(DCcmd["driveName"], DCcmd["searchParam"], DCcmd["option_1"])
 }
 else {
@@ -49,10 +49,9 @@ checkCmdArgs() {
 
         Script Parameters: [DCPath] [option_1] [drive-letter] [search-pattern]+
 
-
         [DCPath]
         The path to your Total Commander installation, for instance "C:\totalcmd\TOTALCMD64.EXE".
-        You can use 32bit or 64bit version. Is necessary!
+            You can use 32bit or 64bit version. Is necessary!
 
         [option_1]
         "-A" (for everything); "-F" (for files only); "-V" (for directorys only). Is necessary!
@@ -78,9 +77,9 @@ getCmdArgs() {
         else if (key = 2)
             aArray["option_1"] := value 
         else if (key = 3)
-            aArray["driveName"] := StrReplace(value, """", "\")   
+            aArray["driveName"] := StrReplace(value, """", "\") 
         else
-            aArray["searchParam"] := aArray["searchParam"] . value      
+            aArray["searchParam"] := aArray["searchParam"] . value 
     }
 
     return aArray
@@ -88,24 +87,24 @@ getCmdArgs() {
 
 openFindDialouge() {
 
-        WinActivate, ahk_class DClass ahk_exe doublecmd.exe
-        WinWaitActive, ahk_class DClass ahk_exe doublecmd.exe
-        ; ControlSend,,!{F7}, ahk_class DClass ahk_exe doublecmd.exe ; not working
-        ControlSend,,{LAlt Down}{F7}{LAlt Up}, ahk_class DClass ahk_exe doublecmd.exe
-        
+    WinActivate, ahk_class DClass ahk_exe doublecmd.exe
+    WinWaitActive, ahk_class DClass ahk_exe doublecmd.exe
+    ; ControlSend,,!{F7}, ahk_class DClass ahk_exe doublecmd.exe ; not working
+    ControlSend,,{LAlt Down}{F7}{LAlt Up}, ahk_class DClass ahk_exe doublecmd.exe
+
 }
 
 startSearch(driveName, searchParam, option_1) {
 
-        WinActivate, ahk_class Window ahk_exe doublecmd.exe
-        WinWaitActive, ahk_class Window ahk_exe doublecmd.exe
-        setFindDialougeTab("start")
-        ControlSetText, Edit6, %driveName%, ahk_class Window ahk_exe doublecmd.exe
-        ControlSetText, Edit4, %searchParam%, ahk_class Window ahk_exe doublecmd.exe
-        ControlFocus, Edit6, ahk_class Window ahk_exe doublecmd.exe
-        ControlFocus, Edit4, ahk_class Window ahk_exe doublecmd.exe
-        selectDCSearchOption(option_1)
-        
+    WinActivate, ahk_class Window ahk_exe doublecmd.exe
+    WinWaitActive, ahk_class Window ahk_exe doublecmd.exe
+    setFindDialougeTab("start")
+    ControlSetText, Edit6, %driveName%, ahk_class Window ahk_exe doublecmd.exe
+    ControlSetText, Edit4, %searchParam%, ahk_class Window ahk_exe doublecmd.exe
+    ControlFocus, Edit6, ahk_class Window ahk_exe doublecmd.exe
+    ControlFocus, Edit4, ahk_class Window ahk_exe doublecmd.exe
+    selectDCSearchOption(option_1)
+
 }
 
 setFindDialougeTab(tabPosition) {
@@ -116,9 +115,9 @@ setFindDialougeTab(tabPosition) {
             Control, TabLeft, 1, SysTabControl321, ahk_class Window ahk_exe doublecmd.exe
         }
     } else if (tabPosition == "end"){
-         loop, 10 {
+        loop, 10 {
             Control, TabRight, 1, SysTabControl321, ahk_class Window ahk_exe doublecmd.exe
-        }       
+        } 
     }
 
 }
@@ -129,15 +128,15 @@ selectDCSearchOption(option_1) {
         return
 
     Control, TabRight, 1, SysTabControl321, ahk_class Window ahk_exe doublecmd.exe
-    
-    if (option_1 = "-V")        
-      ControlSetText, Edit1, d+, ahk_class Window ahk_exe doublecmd.exe
+
+    if (option_1 = "-V") 
+        ControlSetText, Edit1, d+, ahk_class Window ahk_exe doublecmd.exe
     else if (option_1 = "-F")
-      ControlSetText, Edit1, d-, ahk_class Window ahk_exe doublecmd.exe
+        ControlSetText, Edit1, d-, ahk_class Window ahk_exe doublecmd.exe
     else ;option_1 = -A
-      ControlSetText, Edit1,, ahk_class Window ahk_exe doublecmd.exe   
-        
+        ControlSetText, Edit1,, ahk_class Window ahk_exe doublecmd.exe 
+
     Control, TabLeft, 1, SysTabControl321, ahk_class Window ahk_exe doublecmd.exe
     ControlSend, Button5, {Enter}, ahk_class Window ahk_exe doublecmd.exe
-    
+
 }
