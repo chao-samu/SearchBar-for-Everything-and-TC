@@ -1,4 +1,4 @@
-﻿; ==============================================================================
+; ==============================================================================
 ; AutoHotkey Version ..: 1.1.*
 ; Version .............: -
 ; Author ..............: chao-samu
@@ -14,17 +14,17 @@
 ; development notes....: cmd switch /S=F not recommended for tc, because to process the result, it requires a running tc instance.
 ; ==============================================================================
 
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
 #NoTrayIcon
 ; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 
 ; MAIN #########################################################################
 checkCmdArgs()
 TCcmd := getCmdArgs()
 
-if WinExist("ahk_class TFindFile")  {
+if WinExist("ahk_class TFindFile") {
     startSearch(TCcmd["driveName"], TCcmd["searchParam"], TCcmd["option_1"])
 }
 else {
@@ -47,6 +47,7 @@ else {
 
 ; FUNCTIONS ####################################################################
 checkCmdArgs() {
+
     argsCount := A_Args.Length()
     if (A_Args.Length() <= 3) {
         MsgBox,
@@ -55,10 +56,9 @@ checkCmdArgs() {
 
         Script Parameters: [TCPath] [option_1] [drive-letter] [search-pattern]+
 
-
         [TCPath]
         The path to your Total Commander installation, for instance "C:\totalcmd\TOTALCMD64.EXE".
-        You can use 32bit or 64bit version. Is necessary!
+            You can use 32bit or 64bit version. Is necessary!
 
         [option_1]
         "-A" (for everything); "-F" (for files only); "-V" (for directorys only). Is necessary!
@@ -84,9 +84,9 @@ getCmdArgs() {
         else if (key = 2)
             aArray["option_1"] := value 
         else if (key = 3)
-            aArray["driveName"] := StrReplace(value, """", "\")   
+            aArray["driveName"] := StrReplace(value, """", "\") 
         else
-            aArray["searchParam"] := aArray["searchParam"] . value      
+            aArray["searchParam"] := aArray["searchParam"] . value 
     }
 
     return aArray
@@ -94,67 +94,87 @@ getCmdArgs() {
 
 waitForLicenseWindow() {
 
-        if WinExist("ahk_class TNASTYNAGSCREEN")
-            WinWaitClose, ahk_class TNASTYNAGSCREEN
-        if WinExist("ahk_class TDLG2FILEACTIONMIN")
-            WinWaitClose, ahk_class TDLG2FILEACTIONMIN
+    if WinExist("ahk_class TNASTYNAGSCREEN")
+        WinWaitClose, ahk_class TNASTYNAGSCREEN
+    if WinExist("ahk_class TDLG2FILEACTIONMIN")
+        WinWaitClose, ahk_class TDLG2FILEACTIONMIN
 
 }
 
 startSearch(driveName, searchParam, option_1) {
-
-        WinActivate, ahk_class TFindFile
-        WinWaitActive, ahk_class TFindFile
-        ControlSetText, Edit2, %driveName%, ahk_class TFindFile
-        ControlSetText, Edit3, %searchParam%, ahk_class TFindFile
-        ;Sleep, 100 ;necessary for TC string save time in Edit3 if searchstring not saving
-        selectTCSearchOption(option_1)
-        
+    WinActivate, ahk_class TFindFile
+    WinWaitActive, ahk_class TFindFile
+    ControlSetText, Edit2, , ahk_class TFindFile
+    ControlSend, Edit2, {Text}%driveName%, ahk_class TFindFile ;ControlSetText not working safely
+    ControlSetText, Edit3, %searchParam%, ahk_class TFindFile
+    selectTCSearchOption(option_1)
 }
 
 selectTCSearchOption(option_1) {
 
     if WinActive("ahk_class TFindFile ahk_exe TOTALCMD.EXE")
         selectTCSearchOption32(option_1)
-    if WinActive("ahk_class TFindFile ahk_exe TOTALCMD64.EXE")
+    else if WinActive("ahk_class TFindFile ahk_exe TOTALCMD64.EXE")
         selectTCSearchOption64(option_1)
 }
-    
+
 selectTCSearchOption32(option_1) {
 
-    Control, TabRight, 1, TMyTabbedNotebook1, ahk_class TFindFile
-    Control, Check,, TCheckBox3, ahk_class TFindFile
+    if (option_1 = "-V") { 
+        ;PostMessage, 0x130C, 2,, TMyCheckBox11, ahk_class TFindFile ;or 0x130B alternative tab control
+        Control, TabRight, 1, TMyTabbedNotebook1, ahk_class TFindFile
+        Sleep 50 ;necessary for window creating time, otherwise its not saving the settings
+        Control, Check,, TMyCheckBox14, ahk_class TFindFile
+        ;PostMessage, 0x00F1, 1,, TMyCheckBox11, ahk_class TFindFile
+        ControlSend, TMyCheckBox11, {Space 2}, ahk_class TFindFile
+        Control, TabLeft, 1, TMyTabbedNotebook1, ahk_class TFindFile
+    }
+    else if (option_1 = "-F") {
+        ;PostMessage, 0x130C, 2,, TMyCheckBox11, ahk_class TFindFile ;or 0x130B alternative tab control
+        Control, TabRight, 1, TMyTabbedNotebook1, ahk_class TFindFile
+        Sleep 50 ;necessary for window creating time, otherwise its not saving the settings
+        Control, Check,, TMyCheckBox14, ahk_class TFindFile
+        ;PostMessage, 0x00F1, 0,, TMyCheckBox11, ahk_class TFindFile
+        ControlSend, TMyCheckBox11, {Space 1}, ahk_class TFindFile
+        Control, TabLeft, 1, TMyTabbedNotebook1, ahk_class TFindFile
+    } else {
+        ;PostMessage, 0x130C, 2,, TMyCheckBox11, ahk_class TFindFile ;or 0x130B alternative tab control
+        Control, TabRight, 1, TMyTabbedNotebook1, ahk_class TFindFile
+        Sleep 50 ;necessary for window creating time, otherwise its not saving the settings
+        Control, UnCheck,, TMyCheckBox14, ahk_class TFindFile
+        ;PostMessage, 0x00F1, 2,, TMyCheckBox11, ahk_class TFindFile
+        ControlSend, TMyCheckBox11, {Space 3}, ahk_class TFindFile
+        Control, TabLeft, 1, TMyTabbedNotebook1, ahk_class TFindFile
+    }
 
-    if (option_1 = "-V")        
-        PostMessage, 0x00F1, 1,, TMyCheckBox9, ahk_class TFindFile
-    else if (option_1 = "-F")
-        PostMessage, 0x00F1, 0,, TMyCheckBox9, ahk_class TFindFile
-    else ;option_1 = -A
-        PostMessage, 0x00F1, 2,, TMyCheckBox9, ahk_class TFindFile    
-        
-    Control, TabLeft, 1, TMyTabbedNotebook1, ahk_class TFindFile
-    ;ControlClick, TButton19, ahk_class TFindFile ;seems not to work safely
-    ControlFocus, TButton19, ahk_class TFindFile  ; necessary for second search
-    ControlSend, TButton19, {Enter}, ahk_class TFindFile
-    
+    ;ControlFocus, TButton19, ahk_class TFindFile  ; necessary for second search
+    ControlFocus, TButton21, ahk_class TFindFile ; necessary for second search
+    ControlSend, TButton21, {Enter}, ahk_class TFindFile
 }
 
 selectTCSearchOption64(option_1) {
 
-    PostMessage, 0x1330, 1, 0, SysTabControl321, ahk_class TFindFile
-    Sleep 10 ;necessary for window creating time, otherwise the ongoing PostMessage calls come to early
-    Control, Check,, Button18, ahk_class TFindFile
-
-    if (option_1 = "-V")
+    if (option_1 = "-V") { ;folders
+        PostMessage, 0x1330, 1, 0, SysTabControl32, ahk_class TFindFile
+        Sleep 10 ;necessary for window creating time, otherwise the ongoing PostMessage calls come to early
+        Control, Check,, Button18, ahk_class TFindFile
         PostMessage, 0x00F1, 1,, Button15, ahk_class TFindFile
-    else if (option_1 = "-F")
+        PostMessage, 0x1330, 0, 0, SysTabControl32, ahk_class TFindFile
+    }
+    else if (option_1 = "-F") { ;files
+        PostMessage, 0x1330, 1, 0, SysTabControl32, ahk_class TFindFile
+        Sleep 10 ;necessary for window creating time, otherwise the ongoing PostMessage calls come to early
+        Control, Check,, Button18, ahk_class TFindFile
         PostMessage, 0x00F1, 0,, Button15, ahk_class TFindFile
-    else ;option_1 =-A
-        PostMessage, 0x00F1, 2,, Button15, ahk_class TFindFile
+        PostMessage, 0x1330, 0, 0, SysTabControl32, ahk_class TFindFile
+    } else {
+        PostMessage, 0x1330, 1, 0, SysTabControl32, ahk_class TFindFile
+        Sleep 10 ;necessary for window creating time, otherwise the ongoing PostMessage calls come to early
+        Control, UnCheck,, Button18, ahk_class TFindFile
+        PostMessage, 0x1330, 0, 0, SysTabControl32, ahk_class TFindFile 
+    }
 
-    PostMessage, 0x1330, 0, 0, SysTabControl321, ahk_class TFindFile
-    ;ControlClick, Button55, ahk_class TFindFile ;seems not to work safely
-    ControlFocus, Button55, ahk_class TFindFile  ; necessary for second search
-    ControlSend, Button55, {Enter}, ahk_class TFindFile
-    
+    ;ControlFocus, Button55, ahk_class TFindFile  ; necessary for second search
+    ControlFocus, Button58, ahk_class TFindFile ; necessary for second search
+    ControlSend, Button58, {Enter}, ahk_class TFindFile
 }
