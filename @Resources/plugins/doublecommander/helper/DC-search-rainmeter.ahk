@@ -89,8 +89,7 @@ openFindDialouge() {
 
     WinActivate, ahk_class DClass ahk_exe doublecmd.exe
     WinWaitActive, ahk_class DClass ahk_exe doublecmd.exe
-    ; ControlSend,,!{F7}, ahk_class DClass ahk_exe doublecmd.exe ; not working
-    ControlSend,,{LAlt Down}{F7}{LAlt Up}, ahk_class DClass ahk_exe doublecmd.exe
+    ControlSend,,!{F7}, ahk_class DClass ahk_exe doublecmd.exe
 
 }
 
