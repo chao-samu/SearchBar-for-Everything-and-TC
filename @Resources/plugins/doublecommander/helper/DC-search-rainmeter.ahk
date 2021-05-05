@@ -19,7 +19,7 @@
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
-SetKeyDelay, 10, 10 ; required otherwise the OpenfindDialouge is not working reliable
+SetKeyDelay, 10, 10 ; required otherwise the openFindDialouge is not working reliable
 
 ; MAIN #########################################################################
 checkCmdArgs()
