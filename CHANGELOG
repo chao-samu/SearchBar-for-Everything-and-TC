@@ -1,6 +1,4 @@
 ﻿2.02 (06.05.2021)
-- ADD: internal urlencode instead relying on external source
-    - please report any bugs with this, maybe I have to revert this change if it's not working
 - IMPROVED: "totalcommander" & "totalcommander_small" adapted script to work with TC 9.51
 - IMPROVED: "doublecommander" & "doublecommander_small" make script more reliable
 - IMPROVED: separated BackgroundColor global variable, now you can specify
