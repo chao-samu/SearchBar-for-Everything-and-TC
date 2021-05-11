@@ -1,6 +1,8 @@
 ﻿2.02 (06.05.2021)
 - IMPROVED: "totalcommander" & "totalcommander_small" adapted script to work with TC 9.51
-- IMPROVED: "doublecommander" & "doublecommander_small" make script more reliable
+              - because the way this script works, it will probably not work with new versions
+- IMPROVED: "doublecommander" & "doublecommander_small" make script more reliable 0.9.10
+              - because the way this script works, it will probably not work with new versions
 - IMPROVED: separated BackgroundColor global variable, now you can specify
             BackgroundColors separately, thanks to @unknownsoldierx
 
