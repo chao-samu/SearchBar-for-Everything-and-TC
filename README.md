@@ -19,9 +19,9 @@ The following search bars (=plugins) are currently provided:
 + wikipedia
 + youtube
 
-For configuration read the FAQ.txt.
-For plugin development read development.txt
-There both located after Skin installation in "@Resources\_notes"
+For configuration read the FAQ.txt.  
+For plugin development read development.txt.  
+There both located after Skin installation in "@Resources\_notes".   
 
 ## What makes this search bar different from others?
 1. Easily scalable for high dpi screens.
