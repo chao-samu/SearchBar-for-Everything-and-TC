@@ -14,10 +14,14 @@ you should open it with an editor.
 
 
 # How can I change the color of the Skin?
-Open ini file and search for "BackgroundColor=255,255,255,255"
+Open ini file and search for "BackgroundColorShape=255,255,255,255" and
+"BackgroundColorInput=255,255,255,255"
 This are RGBA values, google it if you don't know what it is.
 
-For green for example set "BackgroundColor=0,255,0,255".
+BackgroundColorShape is for the the background of the entire Skin and 
+BackgroundColorInput is the background when you are typing.
+
+For green for example set "BackgroundColorShape=0,255,0,255".
 Save the file and Renew the Skin! Renew is important
 (Right-click on the skin--> "skin renew")!
 
@@ -36,8 +40,8 @@ Save the file and Renew the Skin! Renew is important
 You need Autohotkey installed to get it to work. (https://www.autohotkey.com/)
 Also you need the required program "Total Commander" or "Double Commander" 
 installed!
-Also the Path must be correct look in section "Everything" is not working, if
-you need help for the Path adjustment.
+Also the Path must be correct, look in section "Everything" is not working, if
+you need help for the path adjustment.
 
 
 
@@ -69,12 +73,13 @@ Yes, use the plugin override in the cfg file "SearchBar.cfg.lua".
 Comment it out (remove "--" for the whole table and set "cmd" and "text"). So it
 should look like this:
 
-websearch = {
-name = 'websearch',
-icon = SKIN:GetVariable('@')..'plugins\\websearch\\icon\\png\\',
+websearch_google = {
+name = 'websearch_google',
+size = 2,
+icon = SKIN:GetVariable('@')..'plugins\\websearch_google\\icon\\png\\',
 field1 = {''},
 field2 = {''},
-text = 'Search with DuckDuckGo',
+text = 'Search DuckDuckGo',
 field1_cmd = {''},
 field2_cmd = {''},
 cmd = 'https://duckduckgo.com/?q=',
