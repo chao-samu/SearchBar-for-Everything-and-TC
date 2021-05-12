@@ -1,4 +1,8 @@
-﻿2.02 (11.05.2021)
+﻿2.03 (12.05.2021)
+- BUG: fixed folder and file search on TC64bit
+- IMPROVE: Updated notes and converted to markdown
+
+2.02 (11.05.2021)
 - IMPROVED: "totalcommander" & "totalcommander_small" adapted script to work with TC 9.51
               - because the way this script works, it will probably not work with new versions
 - IMPROVED: "doublecommander" & "doublecommander_small" make script more reliable 0.9.10
