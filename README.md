@@ -40,7 +40,7 @@ There both located after Skin installation in "@Resources\_notes".
    plugins and drive letters.
 5. Edit the Searchbar<flavor>.ini for the **appearance** of the Skin.
 6. Don't forget tor renew skin after changes inf cfg file! 
-6. If you have Problems, read the provided FAQ.txt, "[Rainmeter Getting Started](https://docs.rainmeter.net/manual/getting-started/)",
+7. If you have Problems, read the provided FAQ.txt, "[Rainmeter Getting Started](https://docs.rainmeter.net/manual/getting-started/)",
    ask here for help in the comments or ask in the Rainmeter forum.
 
 ## Where is file X?
