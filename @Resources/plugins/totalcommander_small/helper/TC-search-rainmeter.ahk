@@ -155,23 +155,23 @@ selectTCSearchOption32(option_1) {
 selectTCSearchOption64(option_1) {
 
     if (option_1 = "-V") { ;folders
-        PostMessage, 0x1330, 1, 0, SysTabControl32, ahk_class TFindFile
-        Sleep 10 ;necessary for window creating time, otherwise the ongoing PostMessage calls come to early
+        PostMessage, 0x1330, 1, 0, SysTabControl321, ahk_class TFindFile
+        Sleep 10000 ;necessary for window creating time, otherwise the ongoing PostMessage calls come to early
         Control, Check,, Button18, ahk_class TFindFile
         PostMessage, 0x00F1, 1,, Button15, ahk_class TFindFile
-        PostMessage, 0x1330, 0, 0, SysTabControl32, ahk_class TFindFile
+        PostMessage, 0x1330, 0, 0, SysTabControl321, ahk_class TFindFile
     }
     else if (option_1 = "-F") { ;files
-        PostMessage, 0x1330, 1, 0, SysTabControl32, ahk_class TFindFile
-        Sleep 10 ;necessary for window creating time, otherwise the ongoing PostMessage calls come to early
+        PostMessage, 0x1330, 1, 0, SysTabControl321, ahk_class TFindFile
+        Sleep 10000 ;necessary for window creating time, otherwise the ongoing PostMessage calls come to early
         Control, Check,, Button18, ahk_class TFindFile
         PostMessage, 0x00F1, 0,, Button15, ahk_class TFindFile
-        PostMessage, 0x1330, 0, 0, SysTabControl32, ahk_class TFindFile
+        PostMessage, 0x1330, 0, 0, SysTabControl321, ahk_class TFindFile
     } else {
-        PostMessage, 0x1330, 1, 0, SysTabControl32, ahk_class TFindFile
-        Sleep 10 ;necessary for window creating time, otherwise the ongoing PostMessage calls come to early
+        PostMessage, 0x1330, 1, 0, SysTabControl321, ahk_class TFindFile
+        Sleep 10000 ;necessary for window creating time, otherwise the ongoing PostMessage calls come to early
         Control, UnCheck,, Button18, ahk_class TFindFile
-        PostMessage, 0x1330, 0, 0, SysTabControl32, ahk_class TFindFile 
+        PostMessage, 0x1330, 0, 0, SysTabControl321, ahk_class TFindFile 
     }
 
     ;ControlFocus, Button55, ahk_class TFindFile  ; necessary for second search
