@@ -120,6 +120,8 @@ selectTCSearchOption(option_1) {
 
 selectTCSearchOption32(option_1) {
 
+    ControlFocus, TButton21, ahk_class TFindFile ; necessary for second search
+
     if (option_1 = "-V") { 
         ;PostMessage, 0x130C, 2,, TMyCheckBox11, ahk_class TFindFile ;or 0x130B alternative tab control
         Control, TabRight, 1, TMyTabbedNotebook1, ahk_class TFindFile
@@ -147,12 +149,12 @@ selectTCSearchOption32(option_1) {
         Control, TabLeft, 1, TMyTabbedNotebook1, ahk_class TFindFile
     }
 
-    ;ControlFocus, TButton19, ahk_class TFindFile  ; necessary for second search
-    ControlFocus, TButton21, ahk_class TFindFile ; necessary for second search
     ControlSend, TButton21, {Enter}, ahk_class TFindFile
 }
 
 selectTCSearchOption64(option_1) {
+
+    ControlFocus, Button58, ahk_class TFindFile ; necessary for second search
 
     if (option_1 = "-V") { ;folders
         PostMessage, 0x1330, 1, 0, SysTabControl321, ahk_class TFindFile
@@ -174,7 +176,5 @@ selectTCSearchOption64(option_1) {
         PostMessage, 0x1330, 0, 0, SysTabControl321, ahk_class TFindFile 
     }
 
-    ;ControlFocus, Button55, ahk_class TFindFile  ; necessary for second search
-    ControlFocus, Button58, ahk_class TFindFile ; necessary for second search
     ControlSend, Button58, {Enter}, ahk_class TFindFile
 }
