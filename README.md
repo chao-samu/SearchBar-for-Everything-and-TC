@@ -19,8 +19,8 @@ The following search bars (=plugins) are currently provided:
 + wikipedia
 + youtube
 
-For configuration read the FAQ.txt.  
-For plugin development read development.txt.  
+For configuration read the FAQ.md.  
+For plugin development read development.md.  
 There both located after Skin installation in "@Resources\_notes".   
 
 ## What makes this search bar different from others?
